@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azure_blue">#025669</color>
+
+    <color name="ultramarine_blue">#20214F</color>
+    <color name="honey_yellow">#A98307</color>
+    <color name="traffic_orange">#F54021</color>
+    <color name="grey_beige">#9E9764</color>
+    <color name="orange_brown">#A65E2E</color>
+    <color name="pearl_orange">#C35831</color>
+    <color name="patina_green">#316650</color>
+    <color name="turquoise_green">#1E5945</color>
+    <color name="signal_orange">#D84B20</color>
+    <color name="pastel_yellow">#EFA94A</color>
+    <color name="pastel_violet">#A18594</color>
+    <color name="olive_yellow">#999950</color>
+    <color name="pearl_dark_grey">#828282</color>
+    <color name="pearl_gold">#705335</color>
+    <color name="traffic_purple">#A03472</color>
+
+
+</resources>
