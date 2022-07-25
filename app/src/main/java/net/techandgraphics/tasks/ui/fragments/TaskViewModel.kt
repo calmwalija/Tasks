@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import net.techandgraphics.tasks.data.Repo
 import net.techandgraphics.tasks.model.Task
-import net.techandgraphics.tasks.vo.Color
+import net.techandgraphics.tasks.vo.Utils
 import java.util.*
 import javax.inject.Inject
 
@@ -42,7 +42,7 @@ class TaskViewModel @Inject constructor(
         }.before(Calendar.getInstance())
         repo.update(
             task.copy(
-                complete = calendar, color = if (calendar) Color.color[0] else task.color
+                complete = calendar, color = if (calendar) Utils.color[0] else task.color
             )
         )
         if (callback)

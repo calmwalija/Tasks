@@ -19,15 +19,15 @@ import net.techandgraphics.tasks.databinding.FragmentTaskBinding
 import net.techandgraphics.tasks.ext.Ext
 import net.techandgraphics.tasks.model.Task
 import net.techandgraphics.tasks.ui.fragments.TaskViewModel
-import net.techandgraphics.tasks.vo.Color
 import net.techandgraphics.tasks.vo.TimeDate
+import net.techandgraphics.tasks.vo.Utils
 import java.util.*
 
 @AndroidEntryPoint
 class TaskFragment : Fragment(R.layout.fragment_task) {
 
     private lateinit var bind: FragmentTaskBinding
-    private lateinit var colorAdapter: ColorItemAdapter
+    private lateinit var categoryAdapter: CategoryItemAdapter
     private val viewModel: TaskViewModel by viewModels()
     private var task = Task(title = "", description = "")
     private val args: TaskFragmentArgs by navArgs()
@@ -42,7 +42,7 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
 
 
         with(bind) {
-            colorAdapter = ColorItemAdapter(task.color) {
+            categoryAdapter = CategoryItemAdapter(task.color) {
                 task.color = it
                 create.background.setTint(ContextCompat.getColor(requireContext(), it))
                 backBtn.background.setTint(ContextCompat.getColor(requireContext(), it))
@@ -51,15 +51,15 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
             }
 
             fab.isVisible = dateTime.after(Calendar.getInstance()) && task.complete.not()
-            colorAdapter.submitList(Color.color) {
-                colorAdapter.onClick.invoke(task.color)
+            categoryAdapter.submitList(Utils.category) {
+                categoryAdapter.onClick.invoke(task.color)
             }
 
             fab.setOnClickListener {
                 viewModel.update(
                     task.copy(
                         complete = !task.complete,
-                        color = Color.color[0]
+                        color = Utils.color[0]
                     )
                 )
 

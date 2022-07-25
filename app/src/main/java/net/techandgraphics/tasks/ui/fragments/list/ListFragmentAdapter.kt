@@ -8,6 +8,7 @@ import net.techandgraphics.tasks.databinding.FragmentListItemBinding
 import net.techandgraphics.tasks.model.Task
 import net.techandgraphics.tasks.ui.fragments.list.ListFragmentAdapter.ViewHolder
 import net.techandgraphics.tasks.ui.fragments.list.Listener.*
+import net.techandgraphics.tasks.vo.Utils
 
 
 enum class Listener {
@@ -31,17 +32,12 @@ class ListFragmentAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) = binding.apply {
             this.task = task
+            this.category = Utils.category.filter { it.backgroundColor == task.color }[0]
             executePendingBindings()
         }
 
         init {
             binding.apply {
-                notifyIm.setOnClickListener {
-                    listener.invoke(
-                        NOTIFICATION,
-                        getItem(adapterPosition)
-                    )
-                }
                 timeTv.setOnClickListener { listener.invoke(TIME, getItem(adapterPosition)) }
                 dateTv.setOnClickListener { listener.invoke(DATE, getItem(adapterPosition)) }
                 root.setOnClickListener { listener.invoke(CLICK, getItem(adapterPosition)) }

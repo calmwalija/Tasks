@@ -29,8 +29,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/product_sans_bold"
-                android:text="Manage upcoming \ntasks or todos"
-                android:textSize="24sp"
+                android:text="Manage my tasks"
+                android:textSize="22sp"
                 tools:ignore="HardcodedText" />
 
             <androidx.recyclerview.widget.RecyclerView

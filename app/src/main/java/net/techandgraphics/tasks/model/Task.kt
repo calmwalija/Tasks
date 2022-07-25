@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-import net.techandgraphics.tasks.vo.Color
+import net.techandgraphics.tasks.vo.Utils
 
 @Parcelize
 @Entity
@@ -18,7 +18,7 @@ data class Task(
     var notify: Boolean = true,
     val archive: Boolean = false,
     val complete: Boolean = false,
-    var color: Int = Color.color[0],
+    var color: Int = Utils.color[0],
     val reminderTimestamp: Long = System.currentTimeMillis(),
     val timestamp: Long = System.currentTimeMillis()
 ) : Parcelable
